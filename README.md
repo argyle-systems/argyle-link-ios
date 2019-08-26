@@ -42,7 +42,7 @@ pod 'Argyle'
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Argyle into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "argyle-systems/sdk-ios" == 0.1
+github "argyle-systems/Argyle_iOS" == 0.1
 ```
 
 ## Getting started

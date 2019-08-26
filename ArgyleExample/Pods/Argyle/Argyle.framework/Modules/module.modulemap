@@ -1,0 +1,11 @@
+framework module Argyle {
+  umbrella header "Argyle.h"
+
+  export *
+  module * { export * }
+}
+
+module Argyle.Swift {
+    header "Argyle-Swift.h"
+    requires objc
+}

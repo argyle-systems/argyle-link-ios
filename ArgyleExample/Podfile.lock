@@ -1,0 +1,16 @@
+PODS:
+  - Argyle (1.0)
+
+DEPENDENCIES:
+  - Argyle
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Argyle
+
+SPEC CHECKSUMS:
+  Argyle: a468549b818e45272fd0f795cd505c9a0ece3995
+
+PODFILE CHECKSUM: 62fcb9df821642eb8f4da5f4ccda9d9a6f73330d
+
+COCOAPODS: 1.7.5

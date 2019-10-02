@@ -11,31 +11,34 @@ import Argyle
 
 class ViewController: UIViewController {
     
-    let EXISTING_WORKER_TOKEN_KEY = "EXISTING_EORKER_TOKEN_KEY"
+    let EXISTING_USER_TOKEN_KEY = "EXISTING_USER_TOKEN_KEY"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = Argyle.shared
-            .loginWith(pluginKey: "646dc138-5942-4eb6-a9ca-dd01b6d57ae9", apiHost: "https://api-sandbox.develop.argyle.io/v1")
+            .loginWith(pluginKey: "6d77b75b-116f-466c-b5fe-08094bb419d3", apiHost: "https://api-sandbox.develop.argyle.io/v1")
             //            .dataPartners(["amazon_flex", "uber"])
             .resultListener(self)
     }
     
-    @IBAction func argyleNewWorker(_ sender: Any) {
-        self.present(Argyle.shared.updateToken("").controller, animated: true, completion: nil)
+    @IBAction func argyleNewUser(_ sender: Any) {
+        let argyle = Argyle.shared.updateToken("").controller
+        argyle.modalPresentationStyle = .fullScreen
+        self.present(argyle, animated: true, completion: nil)
     }
     
-    @IBAction func argyleExistingWorker(_ sender: Any) {
-        if let token = UserDefaults.standard.value(forKey: EXISTING_WORKER_TOKEN_KEY) as? String {
-            _ = Argyle.shared.updateToken(token)
-            self.present(Argyle.shared.controller, animated: true, completion: nil)
+    @IBAction func argyleExistingUser(_ sender: Any) {
+        if let token = UserDefaults.standard.value(forKey: EXISTING_USER_TOKEN_KEY) as? String {
+            let argyle = Argyle.shared.updateToken(token).controller
+            argyle.modalPresentationStyle = .fullScreen
+            self.present(argyle, animated: true, completion: nil)
         } else {
             showNoExistingToken()
         }
     }
     
     func showNoExistingToken() {
-        let alert = UIAlertController(title: "Error!", message: "No stored worker token found.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error!", message: "No stored user token found.", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .cancel , handler:{ (UIAlertAction)in
             
@@ -54,17 +57,17 @@ class ViewController: UIViewController {
 
 extension ViewController: ArgyleResultListener {
     
-    func onAccountConnected(accountId: String, workerId: String) {
-        print("APP: onAccountConnected(accountId: \(accountId), workerId: \(workerId))")
+    func onAccountConnected(accountId: String, userId: String) {
+        print("APP: onAccountConnected(accountId: \(accountId), userId: \(userId))")
     }
     
-    func onAccountRemoved(accountId: String, workerId: String) {
-        print("APP: onAccountRemoved(accountId: \(accountId), workerId: \(workerId))")
+    func onAccountRemoved(accountId: String, userId: String) {
+        print("APP: onAccountRemoved(accountId: \(accountId), userId: \(userId))")
     }
     
-    func onWorkerCreated(token: String, workerId: String) {
-        print("APP: onWorkerCreated((token: \(token), workerId: \(workerId))")
-        UserDefaults.standard.set(token, forKey: EXISTING_WORKER_TOKEN_KEY)
+    func onUserCreated(token: String, userId: String) {
+        print("APP: onWorkerCreated((token: \(token), userId: \(userId))")
+        UserDefaults.standard.set(token, forKey: EXISTING_USER_TOKEN_KEY)
     }
     
     func onError(error: ArgyleErrorType) {
@@ -76,5 +79,3 @@ extension ViewController: ArgyleResultListener {
     }
     
 }
-
-

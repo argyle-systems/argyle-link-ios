@@ -42,7 +42,7 @@ pod 'Argyle'
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Argyle into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "argyle-systems/Argyle_iOS" == 1.1.3
+github "argyle-systems/Argyle_iOS" == 1.1.4
 ```
 
 ## Getting started
@@ -50,7 +50,7 @@ github "argyle-systems/Argyle_iOS" == 1.1.3
 
 ### 1. Configurate the SDK Configuration
 
-Login to SDK using your `pluginKey`, along with the `apiHost`, and `workerToken` (optional).
+Login to SDK using your `pluginKey`, along with the `apiHost`, and `userToken` (optional).
 
 Provide `ArgyleResultListener` delegate to handle SDK callbacks.
 
@@ -58,24 +58,24 @@ Swift
 
 ``` swift
     _ = Argyle.shared
-        .loginWith(pluginKey: yourPluginKey, apiHost: apiHost, workerToken: token)
+        .loginWith(pluginKey: yourPluginKey, apiHost: apiHost, userToken: token)
         .resultListener(self)
 ```
 
 Argyle SDK callbacks:
 
 ``` swift
-func onAccountConnected(accountId: String, workerId: String)
+func onAccountConnected(accountId: String, userId: String)
 ```
 A callback function invoked when user connects a new account. The function will be passed an object containing `accountId` and `userId`.
 
 ``` swift
-func onAccountRemoved(accountId: String, workerId: String)
+func onAccountRemoved(accountId: String, userId: String)
 ```
 A callback function invoked when user removes a connected account. The function will be passed an object containing `accountId` and `userId`.
 
 ``` swift
-func onWorkerCreated(token: String, workerId: String)
+func onUserCreated(token: String, userId: String)
 ```
 A callback function invoked when a new user is created. The function will be passed an object containing `userId` and `userToken`. User is created on the first attempt of a new user to connect an account.
 

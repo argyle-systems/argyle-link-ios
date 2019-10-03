@@ -74,8 +74,10 @@ extension ViewController: ArgyleResultListener {
         print("APP: onError(error: \(error.rawValue))")
     }
     
-    func onTokenExpired(handler: (String) -> ()) {
-        handler("New Token")
+    func onTokenExpired(handler: @escaping (String) -> ()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            handler("New token")
+        }
     }
     
 }

@@ -1,5 +1,5 @@
 PODS:
-  - Argyle (1.1.5)
+  - Argyle (1.1.8)
 
 DEPENDENCIES:
   - Argyle
@@ -9,7 +9,7 @@ SPEC REPOS:
     - Argyle
 
 SPEC CHECKSUMS:
-  Argyle: 3b3049bf04a217b0b35536f5608938122664296e
+  Argyle: c68f2e4455df6bfa410bf484bba0b7d2f1ad2f41
 
 PODFILE CHECKSUM: 62fcb9df821642eb8f4da5f4ccda9d9a6f73330d
 

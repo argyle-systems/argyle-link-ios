@@ -1,0 +1,36 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Argyle
+@_exported import Argyle
+import Foundation
+import Swift
+import UIKit
+import WebKit
+@objc public enum ArgyleErrorType : Swift.Int {
+  case NO_CONNECTION
+  case SERVER_ERROR
+  case EXPIRED_TOKEN
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol ArgyleResultListener {
+  @objc func onAccountConnected(accountId: Swift.String, userId: Swift.String)
+  @objc func onAccountRemoved(accountId: Swift.String, userId: Swift.String)
+  @objc func onUserCreated(token: Swift.String, userId: Swift.String)
+  @objc func onError(error: Argyle.ArgyleErrorType)
+  @objc func onTokenExpired(handler: @escaping (Swift.String) -> ())
+}
+@objc public class Argyle : ObjectiveC.NSObject {
+  public static var shared: Argyle.Argyle
+  @objc public func loginWith(pluginKey: Swift.String, apiHost: Swift.String, userToken: Swift.String = "") -> Argyle.Argyle
+  @objc public func updateToken(_ userToken: Swift.String) -> Argyle.Argyle
+  @objc public func dataPartners(_ dataPartners: [Swift.String]) -> Argyle.Argyle
+  @objc public func resultListener(_ resultListener: Argyle.ArgyleResultListener) -> Argyle.Argyle
+  @objc public var controller: UIKit.UINavigationController {
+    @objc get
+  }
+  @objc deinit
+}

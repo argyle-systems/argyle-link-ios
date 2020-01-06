@@ -1,16 +1,16 @@
 PODS:
-  - Argyle (1.1.11)
+  - Argyle (1.1.15)
 
 DEPENDENCIES:
   - Argyle
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Argyle
 
 SPEC CHECKSUMS:
-  Argyle: 123c66ac134f4a216850fc88748c42b0ebc87836
+  Argyle: d33185282ac1c263e055c5f7b75393948c16ee60
 
 PODFILE CHECKSUM: 62fcb9df821642eb8f4da5f4ccda9d9a6f73330d
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

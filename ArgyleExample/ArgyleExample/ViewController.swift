@@ -17,7 +17,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         _ = Argyle.shared
             .loginWith(pluginKey: "6d77b75b-116f-466c-b5fe-08094bb419d3", apiHost: "https://api-sandbox.develop.argyle.io/v1")
-            //            .dataPartners(["amazon_flex", "uber"])
+            .companyName("My Company")
+            //.dataPartners(["amazon_flex", "uber"])
             .resultListener(self)
     }
     

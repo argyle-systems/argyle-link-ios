@@ -37,6 +37,8 @@ We recommend you to lock your app to a portrait orientation.
 pod 'Argyle'
 ```
 
+Use `pod install` and `pod update` commands to install/update pods afterwards
+
 ### Carthage
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Argyle into your Xcode project using Carthage, specify it in your `Cartfile`:

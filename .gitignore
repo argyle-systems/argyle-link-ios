@@ -94,3 +94,5 @@ fastlane/test_output
 
 .idea
 Pods/
+
+.DS_Store

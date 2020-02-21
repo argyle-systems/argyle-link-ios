@@ -1,5 +1,12 @@
 PODS:
-  - Argyle (1.2.0)
+  - Argyle (1.3.2):
+    - PhoneNumberKit (= 3.2.0)
+  - PhoneNumberKit (3.2.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 3.2.0)
+    - PhoneNumberKit/UIKit (= 3.2.0)
+  - PhoneNumberKit/PhoneNumberKitCore (3.2.0)
+  - PhoneNumberKit/UIKit (3.2.0):
+    - PhoneNumberKit/PhoneNumberKitCore
 
 DEPENDENCIES:
   - Argyle
@@ -7,9 +14,11 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Argyle
+    - PhoneNumberKit
 
 SPEC CHECKSUMS:
-  Argyle: a9136d6de4c9f63c1f6236a864621de7c03e9d43
+  Argyle: 7f6250261d34c69e01b4aaf227a01a087e23243e
+  PhoneNumberKit: df411d46177d1492da84e10b6c093846dd861452
 
 PODFILE CHECKSUM: 62fcb9df821642eb8f4da5f4ccda9d9a6f73330d
 

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = Argyle.shared
-            .loginWith(pluginKey: "6d77b75b-116f-466c-b5fe-08094bb419d3", apiHost: "https://api-sandbox.develop.argyle.io/v1")
+            .loginWith(pluginKey: "YOUR_PLUGIN_KEY", apiHost: "https://api-sandbox.argyle.io/v1")
             .companyName("My Company")
             //.dataPartners(["amazon_flex", "uber"])
             .resultListener(self)
@@ -79,6 +79,10 @@ extension ViewController: ArgyleResultListener {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             handler("New token")
         }
+    }
+    
+    func onClose() {
+        print("APP: onClose")
     }
     
 }

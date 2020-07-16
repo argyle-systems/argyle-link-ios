@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4EFA7DBD4FE4F6DAEC536D03 /* Pods_ArgyleExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97ECE80B083B9AA41A75C283 /* Pods_ArgyleExample.framework */; };
 		8514C1D22313E9B300E558F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8514C1D12313E9B300E558F0 /* AppDelegate.swift */; };
 		8514C1D42313E9B300E558F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8514C1D32313E9B300E558F0 /* ViewController.swift */; };
 		8514C1D72313E9B300E558F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8514C1D52313E9B300E558F0 /* Main.storyboard */; };
 		8514C1D92313E9B300E558F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8514C1D82313E9B300E558F0 /* Assets.xcassets */; };
 		8514C1DC2313E9B300E558F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8514C1DA2313E9B300E558F0 /* LaunchScreen.storyboard */; };
+		D7C3DA4D9D9FA3578FFA72EF /* Pods_ArgyleExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E88B581E8E3ECD2B17E15A0 /* Pods_ArgyleExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		109B9C0F2266BD7CC58F342A /* Pods-ArgyleExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgyleExample.release.xcconfig"; path = "Target Support Files/Pods-ArgyleExample/Pods-ArgyleExample.release.xcconfig"; sourceTree = "<group>"; };
 		71C54C56F2FC2306676DD2A5 /* Pods-ArgyleExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArgyleExample.debug.xcconfig"; path = "Target Support Files/Pods-ArgyleExample/Pods-ArgyleExample.debug.xcconfig"; sourceTree = "<group>"; };
+		7E88B581E8E3ECD2B17E15A0 /* Pods_ArgyleExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgyleExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8514C1CE2313E9B300E558F0 /* ArgyleExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArgyleExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8514C1D12313E9B300E558F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8514C1D32313E9B300E558F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,7 +26,6 @@
 		8514C1D82313E9B300E558F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8514C1DB2313E9B300E558F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8514C1DD2313E9B300E558F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		97ECE80B083B9AA41A75C283 /* Pods_ArgyleExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArgyleExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EFA7DBD4FE4F6DAEC536D03 /* Pods_ArgyleExample.framework in Frameworks */,
+				D7C3DA4D9D9FA3578FFA72EF /* Pods_ArgyleExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,7 +43,7 @@
 		5778F53668D3918AF41EDC9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				97ECE80B083B9AA41A75C283 /* Pods_ArgyleExample.framework */,
+				7E88B581E8E3ECD2B17E15A0 /* Pods_ArgyleExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -99,7 +99,7 @@
 				8514C1CA2313E9B300E558F0 /* Sources */,
 				8514C1CB2313E9B300E558F0 /* Frameworks */,
 				8514C1CC2313E9B300E558F0 /* Resources */,
-				7C646CE623582C76AB02D3AA /* [CP] Embed Pods Frameworks */,
+				11AF54CE4441D17EA188E80E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,7 +157,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7C646CE623582C76AB02D3AA /* [CP] Embed Pods Frameworks */ = {
+		11AF54CE4441D17EA188E80E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

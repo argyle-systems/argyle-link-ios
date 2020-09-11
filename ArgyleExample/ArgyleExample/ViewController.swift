@@ -88,6 +88,10 @@ extension ViewController: ArgyleResultListener {
         }
     }
 
+    func onAccountError(accountId: String, userId: String, dataPartner: String) {
+        print("APP: onAccountError(accountId: \(accountId), userId: \(userId), dataPartner \(dataPartner))")
+    }
+
     func onClose() {
         print("APP: onClose")
     }

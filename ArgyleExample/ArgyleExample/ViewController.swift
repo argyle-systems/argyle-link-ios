@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         _ = Argyle.shared
             .loginWith(pluginKey: "YOUR_PLUGIN_KEY", apiHost: "https://api-sandbox.argyle.io/v1")
-            //.dataPartners(["amazon_flex", "uber"])
+            //.linkItems(["uber"])
             .resultListener(self)
     }
 
@@ -56,21 +56,28 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: ArgyleResultListener {
-
-    func onAccountCreated(accountId: String, userId: String, dataPartner:String) {
-        print("APP: onAccountCreated(accountId: \(accountId), userId: \(userId), dataPartner \(dataPartner))")
+    func onAccountCreated(accountId: String, userId: String, linkItemId:String) {
+        print("APP: onAccountCreated(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
     }
 
-    func onAccountConnected(accountId: String, userId: String, dataPartner:String) {
-        print("APP: onAccountConnected(accountId: \(accountId), userId: \(userId), dataPartner \(dataPartner))")
+    func onAccountConnected(accountId: String, userId: String, linkItemId:String) {
+        print("APP: onAccountConnected(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
     }
 
-    func onAccountUpdated(accountId: String, userId: String, dataPartner:String) {
-        print("APP: onAccountUpdated(accountId: \(accountId), userId: \(userId), dataPartner \(dataPartner))")
+    func onAccountUpdated(accountId: String, userId: String, linkItemId:String) {
+        print("APP: onAccountUpdated(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
     }
 
-    func onAccountRemoved(accountId: String, userId: String, dataPartner:String) {
-        print("APP: onAccountRemoved(accountId: \(accountId), userId: \(userId), dataPartner \(dataPartner))")
+    func onAccountRemoved(accountId: String, userId: String, linkItemId:String) {
+        print("APP: onAccountRemoved(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
+    }
+    
+    func onPayDistributionSuccess(accountId: String, userId: String, linkItemId: String) {
+        print("APP: onPayDistributionSuccess(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
+    }
+    
+    func onPayDistributionError(accountId: String, userId: String, linkItemId: String) {
+        print("APP: onPayDistributionError(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
     }
 
     func onUserCreated(token: String, userId: String) {
@@ -88,8 +95,8 @@ extension ViewController: ArgyleResultListener {
         }
     }
 
-    func onAccountError(accountId: String, userId: String, dataPartner: String) {
-        print("APP: onAccountError(accountId: \(accountId), userId: \(userId), dataPartner \(dataPartner))")
+    func onAccountError(accountId: String, userId: String, linkItemId: String) {
+        print("APP: onAccountError(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
     }
 
     func onClose() {

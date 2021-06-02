@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Argyle
+import ArgyleLink
 
 class ViewController: UIViewController {
 

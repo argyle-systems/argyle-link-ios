@@ -12,12 +12,27 @@ import ArgyleLink
 class ViewController: UIViewController {
 
     let EXISTING_USER_TOKEN_KEY = "EXISTING_USER_TOKEN_KEY"
-
+    let PLUGIN_KEY = "YOUR_PLUGIN_KEY"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupArgyleWithPayDistribution()
+    }
+    
+    private func setupArgyleBasic() {
         _ = Argyle.shared
-            .loginWith(pluginKey: "YOUR_PLUGIN_KEY", apiHost: "https://api-sandbox.argyle.io/v1")
-            //.linkItems(["uber"])
+            .loginWith(pluginKey: PLUGIN_KEY, apiHost: "https://api-sandbox.argyle.io/v1")
+//            .linkItems(["uber"]) // uncomment to limit the number of Link items that users can connect
+            .resultListener(self)
+    }
+    
+    private func setupArgyleWithPayDistribution() {
+        let PD_CONFIG = "YOUR_ENCRYPTED_PD_CONFIG" // More info: https://argyle.com/docs/pay-distributions-guide/link-integration
+        _ = Argyle.shared
+            .loginWith(pluginKey: PLUGIN_KEY, apiHost: "https://api-sandbox.argyle.io/v1")
+            .payDistributionUpdateFlow(true)
+            .payDistributionConfig(PD_CONFIG)
+            .payDistributionItemsOnly(true)
             .resultListener(self)
     }
 

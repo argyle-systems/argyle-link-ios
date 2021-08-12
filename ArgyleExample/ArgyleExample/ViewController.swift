@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupArgyleWithPayDistribution()
     }
-    
+
     private func setupArgyleBasic() {
         _ = Argyle.shared
             .loginWith(pluginKey: PLUGIN_KEY, apiHost: "https://api-sandbox.argyle.io/v1")
@@ -102,6 +102,10 @@ extension ViewController: ArgyleResultListener {
 
     func onError(error: ArgyleErrorType) {
         print("APP: onError(error: \(error.rawValue))")
+    }
+
+    func onUIEvent(name: String, properties: [String: Any]) {
+        print("APP: onUIEvent(name: \(name), properties: \(properties)")
     }
 
     func onTokenExpired(handler: @escaping (String) -> ()) {

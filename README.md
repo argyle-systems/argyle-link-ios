@@ -2,7 +2,7 @@
 
 Argyle Link iOS SDK provides a way to integrate [Argyle Link](https://argyle.io/docs/argyle-link) into your iOS app.
 
-If you are looking to update Argyle Link to the newest version, navigate to [upgrade guide](https://github.com/argyle-systems/argyle-link-ios/blob/master/Migration.md).
+If you are looking to update Argyle Link to the newest version, navigate to [upgrade guide](https://github.com/argyle-systems/argyle-link-ios/blob/master/UPGRADING.md).
 
 **Requirements:**
 - iOS 12.0+

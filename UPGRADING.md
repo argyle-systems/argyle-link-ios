@@ -1,4 +1,4 @@
-# Migrating to Link 4
+# iOS SDK version upgrade guide
 ## Learn how to upgrade to the newest Link version.
 If you are looking to integrate Argyle Link for the first time navigate to [integration guide](https://github.com/argyle-systems/argyle-link-ios#readme).
 
@@ -63,6 +63,9 @@ We strongly recommend upgrading the SDK as soon as there is a new version availa
 To verify your SDK version, you can read your `Podfile.lock` and check the `PODS: 'Insert'` value.
 
 ---
+# Migrating to Link 4
+
+If you're using a previous major version of Link and would like to migrate to the new version, please update the changed configuration parameters and then follow the usual [iOS Link SDK version upgrade instruction](#upgrade-to-a-new-sdk-version) defined above.
 ## Migrating from Link 3
 ### Updated configuration attribute
 

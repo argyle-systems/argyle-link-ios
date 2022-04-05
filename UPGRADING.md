@@ -65,7 +65,7 @@ To verify your SDK version, you can read your `Podfile.lock` and check the `PODS
 ---
 # Migrating to Link 4
 
-If you're using a previous major version of Link and would like to migrate to the new version, please make the updates described below and then follow the usual [iOS Link SDK version upgrade instruction](#upgrade-to-a-new-sdk-version) defined above.
+If you're using a previous version of Link and would like to migrate to the new version, please make the updates described below and then follow the usual [iOS Link SDK version upgrade instruction](#upgrade-to-a-new-sdk-version) defined above.
 
 ### Update Info.plist
 For users to have a seamless [multi-factor authentication verification experience](https://argyle.com/docs/products/link-4#mfa-screen) Argyle Link SDK supports direct opening of an email client. For this to work the list of supported clients has to be defined for `LSApplicationQueriesSchemes` property in your `Info.plist` file.
@@ -80,7 +80,7 @@ For users to have a seamless [multi-factor authentication verification experienc
 ---
 ### Updated configuration attributes
 
-If you're currently using Link 3 and would like to migrate to the new version, please find below the single changed configuration attribute.
+If you're using a previous version of Link and would like to migrate to the new version, please find below a list of all configuration attributes that have been removed or changed.
 
 ---
 
@@ -90,6 +90,26 @@ The property was renamed to `linkKey`.
 
 ---
 
+**introSearchPlaceholder: removed**
+
+Became redundant as search is no longer available in the [Intro screen](https://argyle.com/docs/products/link-4#intro-screen).
+
+---
+**searchScreenTitle: removed**
+
+No longer applicable due to [Search screen](https://argyle.com/docs/products/link-4#search-screen) changes.
+
+---
+**searchScreenSubtitle: removed**
+
+No longer applicable due to [Search screen](https://argyle.com/docs/products/link-4#search-screen) changes.
+
+---
+**dataPartners: removed**
+
+The property has been deprecated since introduction of Link 3 in favor of `linkItems`.
+
+---
 ### Updated error code
 
 A name of the error code returned via `onError` callback is also changed to reflect the update of configuration attribute.

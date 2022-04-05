@@ -46,7 +46,7 @@ For users to have a seamless [multi-factor authentication verification experienc
 ### 1. Access your Link API Key
 1. Log into your [Console](https://console.argyle.com/api-keys) instance
 2. Navigate to the [API Keys](https://console.argyle.com/api-keys) area under the Developer menu
-3. Copy your Sandbox or Production Link API Key for use in the next step
+3. Copy your Sandbox or Production Link API Key for use in configuration
 
 ### 2. Utilize user tokens
 For successful implementation you need to make sure to utilize user tokens correctly. Learn how to do it in Argyle [returning user experience guide](https://argyle.com/docs/products/returning-users-experience#suggested-flow-for-user-token-usage) before continuing onto the next step.

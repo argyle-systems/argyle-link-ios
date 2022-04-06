@@ -92,17 +92,17 @@ The property was renamed to `linkKey`.
 
 **introSearchPlaceholder: removed**
 
-Became redundant as search is no longer available in the [Intro screen](https://argyle.com/docs/products/link-4#intro-screen).
+Became redundant due to [Intro screen](https://argyle.com/docs/products/link-4#intro-screen) redesign.
 
 ---
 **searchScreenTitle: removed**
 
-No longer applicable due to [Search screen](https://argyle.com/docs/products/link-4#search-screen) changes.
+Became redundant due to [Search screen](https://argyle.com/docs/products/link-4#search-screen) redesign.
 
 ---
 **searchScreenSubtitle: removed**
 
-No longer applicable due to [Search screen](https://argyle.com/docs/products/link-4#search-screen) changes.
+Became redundant due to [Search screen](https://argyle.com/docs/products/link-4#search-screen) redesign.
 
 ---
 **dataPartners: removed**

@@ -118,6 +118,10 @@ extension ViewController: ArgyleResultListener {
         print("APP: onAccountError(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
     }
 
+    func onExitIntroClicked() {
+        print("APP: onAccountError")
+    }
+
     func onClose() {
         print("APP: onClose")
     }

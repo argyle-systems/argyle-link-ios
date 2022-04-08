@@ -119,7 +119,7 @@ extension ViewController: ArgyleResultListener {
     }
 
     func onExitIntroClicked() {
-        print("APP: onAccountError")
+        print("APP: onExitIntroClicked")
     }
 
     func onClose() {

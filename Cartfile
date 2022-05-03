@@ -1,2 +1,2 @@
-github "getsentry/sentry-cocoa"
-github "https://github.com/kstenerud/KSCrash"
+github "getsentry/sentry-cocoa" ~> 7
+github "https://github.com/kstenerud/KSCrash" ~> 1

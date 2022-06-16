@@ -1,4 +1,4 @@
-# Argyle iOS SDK example project
+# Argyle iOS SDK
 
 Argyle Link iOS SDK provides a way to integrate [Argyle Link](https://argyle.io/docs/argyle-link) into your iOS app.
 
@@ -16,6 +16,8 @@ If you are looking to update Argyle Link to the newest version, navigate to [upg
 ## 1. Add the SDK dependency
 
 **CocoaPods**
+
+![pod](https://img.shields.io/cocoapods/v/Argyle?style=for-the-badge)
 
 [CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Argyle into your Xcode project using CocoaPods, specify it in your `Podfile:`
 

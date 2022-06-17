@@ -1,88 +1,16 @@
 PODS:
-  - Argyle (4.2.0):
-    - KSCrash (~> 1)
-    - Sentry (~> 7)
-  - KSCrash (1.15.25):
-    - KSCrash/Installations (= 1.15.25)
-  - KSCrash/Installations (1.15.25):
-    - KSCrash/Recording
-    - KSCrash/Reporting
-  - KSCrash/Recording (1.15.25):
-    - KSCrash/Recording/Tools (= 1.15.25)
-  - KSCrash/Recording/Tools (1.15.25)
-  - KSCrash/Reporting (1.15.25):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters (= 1.15.25)
-    - KSCrash/Reporting/MessageUI (= 1.15.25)
-    - KSCrash/Reporting/Sinks (= 1.15.25)
-    - KSCrash/Reporting/Tools (= 1.15.25)
-  - KSCrash/Reporting/Filters (1.15.25):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Alert (= 1.15.25)
-    - KSCrash/Reporting/Filters/AppleFmt (= 1.15.25)
-    - KSCrash/Reporting/Filters/Base (= 1.15.25)
-    - KSCrash/Reporting/Filters/Basic (= 1.15.25)
-    - KSCrash/Reporting/Filters/GZip (= 1.15.25)
-    - KSCrash/Reporting/Filters/JSON (= 1.15.25)
-    - KSCrash/Reporting/Filters/Sets (= 1.15.25)
-    - KSCrash/Reporting/Filters/Stringify (= 1.15.25)
-    - KSCrash/Reporting/Filters/Tools (= 1.15.25)
-  - KSCrash/Reporting/Filters/Alert (1.15.25):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/AppleFmt (1.15.25):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Base (1.15.25):
-    - KSCrash/Recording
-  - KSCrash/Reporting/Filters/Basic (1.15.25):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/GZip (1.15.25):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/JSON (1.15.25):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Sets (1.15.25):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/AppleFmt
-    - KSCrash/Reporting/Filters/Base
-    - KSCrash/Reporting/Filters/Basic
-    - KSCrash/Reporting/Filters/GZip
-    - KSCrash/Reporting/Filters/JSON
-    - KSCrash/Reporting/Filters/Stringify
-  - KSCrash/Reporting/Filters/Stringify (1.15.25):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Tools (1.15.25):
-    - KSCrash/Recording
-  - KSCrash/Reporting/MessageUI (1.15.25):
-    - KSCrash/Recording
-  - KSCrash/Reporting/Sinks (1.15.25):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters
-    - KSCrash/Reporting/Tools
-  - KSCrash/Reporting/Tools (1.15.25):
-    - KSCrash/Recording
-  - Sentry (7.16.1):
-    - Sentry/Core (= 7.16.1)
-  - Sentry/Core (7.16.1)
+  - Argyle (4.2.1)
 
 DEPENDENCIES:
-  - Argyle (= 4.2.0)
+  - Argyle (= 4.2.1)
 
 SPEC REPOS:
   trunk:
     - Argyle
-    - KSCrash
-    - Sentry
 
 SPEC CHECKSUMS:
-  Argyle: 84bac3b1a7b1427ba6ec65960956583fc2662502
-  KSCrash: 6689ba5c43800f831b68928ccdbcc8b201d4dd86
-  Sentry: 151b20aa5ebbe648816f8f7a41da9d5f177d9813
+  Argyle: 2644cd228c9a24c4cc40d38542abbc7a619874b4
 
-PODFILE CHECKSUM: 1ef76c10b32a0de16fa8cd97be4efd4ccb8baad7
+PODFILE CHECKSUM: 58d8c1dacd61c8fed31262c22a3b80c92b4f56b7
 
 COCOAPODS: 1.10.1

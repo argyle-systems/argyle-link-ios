@@ -27,11 +27,9 @@ Use `pod install` and `pod update` commands to install/update pods afterward.
 
 --- 
 
-**Carthage**
+**Swift Package Manager**
 
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Argyle into your Xcode project using Carthage, specify it in your `Cartfile:`
-
-`github "argyle-systems/argyle-plugin-ios" == 4.x.x`
+[Swift Package Manager](https://www.swift.org/package-manager/) is a tool for managing the distribution of Swift code and is integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies. To integrate Argyle Link into your Xcode project using Swift Package Manager, navigate to your project settings, click the Package Dependencies tab and then click on the ➕ symbol to open the package search window - you should be able to find `argyle-link-ios` by searching by the URL of this repo.
 
 ## 2. Update Info.plist
 For users to have a seamless [multi-factor authentication verification experience](https://argyle.com/docs/products/link-4#mfa-screen) Argyle Link SDK supports direct opening of an email client. For this to work the list of supported clients has to be defined for `LSApplicationQueriesSchemes` property in your `Info.plist` file.

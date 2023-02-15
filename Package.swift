@@ -2,18 +2,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "ArgyleLink",
+    name: "Argyle",
     products: [
         .library(
-            name: "ArgyleLink",
-            targets: ["ArgyleLink"]
+            name: "Argyle",
+            targets: ["Argyle"]
         )
     ],
     targets: [
         .binaryTarget(
-            name: "ArgyleLink",
-            url: "https://github.com/argyle-systems/argyle-link-ios/releases/download/4.7.2/ArgyleLink.xcframework.zip",
-            checksum: "cf03ba6ee89e29e6c5e554552e56cebfe1d95351dea4df25e8ed95b92f56b4ab"
+            name: "Argyle",
+            url: "https://github.com/argyle-systems/argyle-link-ios/releases/download/5.0.0-beta1/Argyle.xcframework.zip",
+            checksum: "fb32cd071d12518f0899389b22b4146ea04153b99a4dedfd5e9b543d24b777cc"
         )
     ]
 )

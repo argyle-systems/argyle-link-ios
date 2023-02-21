@@ -7,123 +7,95 @@
 //
 
 import UIKit
-import ArgyleLink
+import Argyle
 
 class ViewController: UIViewController {
 
-    let EXISTING_USER_TOKEN_KEY = "EXISTING_USER_TOKEN_KEY"
-    let LINK_KEY = "YOUR_LINK_KEY"
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupArgyleBasic()
+    private let USER_TOKEN = "YOUR_USER_TOKEN"
+    private let LINK_KEY = "YOUR_LINK_KEY"
+
+    @IBAction func startLink(_ sender: Any) {
+        var config = LinkConfig(linkKey: LINK_KEY, userToken: USER_TOKEN, sandbox: true)
+
+//        Limit search to the specified items only
+//        config.items = ["item_000025742", "item_000014039"]
+
+//        Take the user directly to a connected account
+//        config.accountId = "ACCOUNT_ID"
+
+//        Use customization, more info: https://docs.argyle.com/guides/docs/customize
+//        config.customizationId = "00000000"
+
+//         Use direct deposit switching, more info: https://docs.argyle.com/guides/docs/direct-deposit-switching
+//        config.ddsConfig = "YOUR_DDS_CONFIG"
+
+        setupCallbacks(&config)
+        ArgyleLink.start(from: self, config: config)
     }
 
-    private func setupArgyleBasic() {
-        _ = Argyle.shared
-            .loginWith(linkKey: LINK_KEY, apiHost: "https://api-sandbox.argyle.io/v1")
-//            .linkItems(["uber"]) // uncomment to limit the number of Link items that users can connect
-            .resultListener(self)
-    }
-    
-    private func setupArgyleWithPayDistribution() {
-        let PD_CONFIG = "YOUR_ENCRYPTED_PD_CONFIG" // More info: https://argyle.com/docs/pay-distributions-guide/link-integration
-        _ = Argyle.shared
-            .loginWith(linkKey: LINK_KEY, apiHost: "https://api-sandbox.argyle.io/v1")
-            .payDistributionUpdateFlow(true)
-            .payDistributionConfig(PD_CONFIG)
-            .payDistributionItemsOnly(true)
-            .resultListener(self)
-    }
+    private func setupCallbacks(_ config: inout LinkConfig) {
 
-    @IBAction func argyleNewUser(_ sender: Any) {
-        let argyle = Argyle.shared.updateToken("").controller
-        argyle.modalPresentationStyle = .fullScreen
-        self.present(argyle, animated: true, completion: nil)
-    }
-
-    @IBAction func argyleExistingUser(_ sender: Any) {
-        if let token = UserDefaults.standard.value(forKey: EXISTING_USER_TOKEN_KEY) as? String {
-            let argyle = Argyle.shared.updateToken(token).controller
-            argyle.modalPresentationStyle = .fullScreen
-            self.present(argyle, animated: true, completion: nil)
-        } else {
-            showNoExistingToken()
-        }
-    }
-
-    func showNoExistingToken() {
-        let alert = UIAlertController(title: "Error!", message: "No stored user token found.", preferredStyle: .alert)
-
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel , handler:{ (UIAlertAction)in
-
-        }))
-
-        if let popoverController = alert.popoverPresentationController {
-            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
-            popoverController.sourceView = self.view
-            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        config.onCantFindItemClicked = { itemID in
+            print("onCantFindItemClicked \(itemID)")
         }
 
-        self.present(alert, animated: true, completion: nil)
-    }
+        config.onAccountCreated = { accountData in
+            print("onAccountCreated (accountId: \(accountData.accountId), itemId: \(accountData.itemId), userId: \(accountData.userId))")
+        }
 
-}
+        config.onAccountConnected = { accountData in
+            print("onAccountConnected (accountId: \(accountData.accountId), itemId: \(accountData.itemId), userId: \(accountData.userId))")
+        }
 
-extension ViewController: ArgyleResultListener {
-    func onAccountCreated(accountId: String, userId: String, linkItemId:String) {
-        print("APP: onAccountCreated(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
-    }
+        config.onAccountRemoved = { accountData in
+            print("onAccountRemoved (accountId: \(accountData.accountId), itemId: \(accountData.itemId), userId: \(accountData.userId))")
+        }
 
-    func onAccountConnected(accountId: String, userId: String, linkItemId:String) {
-        print("APP: onAccountConnected(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
-    }
+        config.onAccountError = { accountData in
+            print("onAccountError (accountId: \(accountData.accountId), itemId: \(accountData.itemId), userId: \(accountData.userId))")
+        }
 
-    func onAccountUpdated(accountId: String, userId: String, linkItemId:String) {
-        print("APP: onAccountUpdated(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
-    }
+        config.onDDSSuccess = { accountData in
+            print("onDDSSuccess (accountId: \(accountData.accountId), itemId: \(accountData.itemId), userId: \(accountData.userId))")
+        }
 
-    func onAccountRemoved(accountId: String, userId: String, linkItemId:String) {
-        print("APP: onAccountRemoved(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
-    }
-    
-    func onPayDistributionSuccess(accountId: String, userId: String, linkItemId: String) {
-        print("APP: onPayDistributionSuccess(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
-    }
-    
-    func onPayDistributionError(accountId: String, userId: String, linkItemId: String) {
-        print("APP: onPayDistributionError(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
-    }
+        config.onDDSError = { accountData in
+            print("onDDSError (accountId: \(accountData.accountId), itemId: \(accountData.itemId), userId: \(accountData.userId))")
+        }
 
-    func onUserCreated(token: String, userId: String) {
-        print("APP: onWorkerCreated((token: \(token), userId: \(userId))")
-        UserDefaults.standard.set(token, forKey: EXISTING_USER_TOKEN_KEY)
-    }
+        config.onFormSubmitted = { formData in
+            print("onFormSubmitted (accountId: \(formData.accountId), userId: \(formData.userId))")
+        }
 
-    func onError(error: ArgyleErrorType) {
-        print("APP: onError(error: \(error.rawValue))")
-    }
+        config.onDocumentsSubmitted = { formData in
+            print("onDocumentsSubmitted (accountId: \(formData.accountId), userId: \(formData.userId))")
+        }
 
-    func onUIEvent(name: String, properties: [String: Any]) {
-        print("APP: onUIEvent(name: \(name), properties: \(properties)")
-    }
+        config.onError = { linkError in
+            print("onError (errorType: \(linkError.errorType), errorMessage: \(linkError.errorMessage), errorDetails: \(linkError.errorDetails ?? ""))")
+        }
 
-    func onTokenExpired(handler: @escaping (String) -> ()) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            handler("New token")
+        config.onClose = {
+            print("onClose")
+        }
+
+        config.onTokenExpired = { handler in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                handler("YOUR_NEW_TOKEN")
+            }
+        }
+
+        config.onExitIntroClicked = {
+            print("onExitIntroClicked")
+        }
+
+        config.onUIEvent = { uiEvent in
+            var message = "onUIEvent (name: \(uiEvent.name), properties: "
+            for prop in uiEvent.properties {
+                message.append("(\(prop.key): \(prop.value))")
+            }
+            message.append(")")
+            print(message)
         }
     }
-
-    func onAccountError(accountId: String, userId: String, linkItemId: String) {
-        print("APP: onAccountError(accountId: \(accountId), userId: \(userId), linkItemId: \(linkItemId))")
-    }
-
-    func onExitIntroClicked() {
-        print("APP: onExitIntroClicked")
-    }
-
-    func onClose() {
-        print("APP: onClose")
-    }
-
 }

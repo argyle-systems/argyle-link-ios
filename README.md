@@ -13,8 +13,6 @@ First-time installation instructions are below. To update versions, visit our [u
 
 ## Installing the SDK
 
----
-
 **…using [CocoaPods](https://cocoapods.org/):**
 
 1. In the `Podfile` of your Xcode project, add `pod 'Argyle', '5.0.0-beta1’` ([example Podfile](https://github.com/argyle-systems/argyle-link-ios/blob/master/ArgyleExample/Podfile))
@@ -46,8 +44,6 @@ To enhance the multi-factor authentication (MFA) experience of users, the Link S
 ```
 
 ## Implementing Link
-
----
 
 1. Log-in to Console and retrieve a copy of your [Link key](https://console.argyle.com/link-key)
 2. Create a user token:

@@ -28,8 +28,6 @@ See [adding Swift package dependencies in Xcode](https://developer.apple.com/doc
 
 ## Directly opening email clients
 
----
-
 To enhance the multi-factor authentication (MFA) experience of users, the Link SDK supports directly opening the user’s email client. To enable this feature…
 
 1. Add the following property to your `Info.plist` file:

@@ -1,27 +1,41 @@
 # Argyle iOS SDK
 ![pod](https://img.shields.io/cocoapods/v/Argyle?style=for-the-badge)
 
-The iOS Link SDK provides a quick and easy way to integrate [Argyle Link](https://argyle.io/docs/argyle-link) into your iOS app.
+Argyle’s iOS Link SDK provides a way to integrate [Link](https://docs.argyle.com/guides/docs/argyle-link-overview) into your iOS app.
 
-For detailed instructions on how to setup your iOS integration, navigate to the :blue_book: [Integration guide](https://docs.argyle.com/guides/docs/ios) or checkout the :file_folder: [Link Reference](https://docs.argyle.com/guides/reference/link-reference-overview).
+First-time installation instructions are below. To update versions, visit our [upgrade guide](https://github.com/argyle-systems/argyle-link-ios/blob/master/UPGRADING.md).
 
-If you are looking to update Argyle Link to the newest version, navigate to [upgrade guide](https://github.com/argyle-systems/argyle-link-ios/blob/master/UPGRADING.md).
+**************************Requirements:**************************
 
-# Table of contents
-- [Requirements](#requirements)
-- [Adding it to your project](#installation)
-    - [Installation](#install)
-    - [Configure and Start](#configure)
-- [User Tokens](#usertokens)
+- iOS 14.0+
+- Xcode 14.0+
+- Swift 5.5+
 
-## Requirements <a name="requirements"></a>
+## Installing the SDK
 
-- iOS 12.0+
-- Xcode 13.0+
-- Swift 5+
+---
 
-#### Update Info.plist
-For users to have a seamless [multi-factor authentication verification experience](https://argyle.com/docs/products/link-4#mfa-screen) Argyle Link SDK supports direct opening of an email client. For this to work the list of supported clients has to be defined for `LSApplicationQueriesSchemes` property in your `Info.plist` file.
+**…using [CocoaPods](https://cocoapods.org/):**
+
+1. In the `Podfile` of your Xcode project, add `pod 'Argyle', '5.0.0-beta1’` ([example Podfile](https://github.com/argyle-systems/argyle-link-ios/blob/master/ArgyleExample/Podfile))
+2. Run `pod install` to install the Argyle pod
+3. Run `pod update` to ensure the most recent Argyle pod is installed
+
+**…using [Swift Package Manager](https://www.swift.org/package-manager/):**
+
+1. Within your Xcode project, select File > Swift Packages > Add Package Dependency
+2. Find `argyle-link-ios` by searching the URL of this repo
+
+See [adding Swift package dependencies in Xcode](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app#Add-a-package-dependency) for more information.
+
+## Directly opening email clients
+
+---
+
+To enhance the multi-factor authentication (MFA) experience of users, the Link SDK supports directly opening the user’s email client. To enable this feature…
+
+1. Add the following property to your `Info.plist` file:
+
 ```
 <key>LSApplicationQueriesSchemes</key>
 <array>
@@ -31,32 +45,57 @@ For users to have a seamless [multi-factor authentication verification experienc
 </array>
 ```
 
-## Adding it to your project <a name="installation"></a>
-Our SDK can be integrated into your application in 2 simple steps.
+## Implementing Link
 
-### 1. Installation with CocoaPods or SwiftPM  <a name="install"></a>
+---
 
-**CocoaPods**
+1. Log-in to Console and retrieve a copy of your [Link key](https://console.argyle.com/link-key)
+2. Create a user token:
+- **New users**
+    1. Create a new user by sending a **POST** to the [users endpoint](https://docs.argyle.com/guides/reference/create-a-user) of the Argyle API
+    2. The response payload will include an `id` and `user_token`
+    3. Save the `id` for quickly creating user tokens for this user in the future
+    4. Initialize Link by passing the `user_token` as the value for the `userToken` parameter
+- **Returning users**
+    1. Send a **POST** request to the [user-tokens endpoint](https://docs.argyle.com/guides/reference/create-a-user-token) of the Argyle API
+        - Include the `id` of the user in the request body as a JSON object in the format `{"user": "<id>"}`
+    2. A `user_token` will be included in the response payload
+    3. Initialize Link by passing the `user_token` as the value for the `userToken` parameter
+1. Initialize Link using the Link key and user token. 
 
-[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Argyle into your Xcode project using CocoaPods, specify it in your `Podfile:`
+<aside>
+ℹ️ Make sure the Link key matches the environment of the `sandbox` parameter.
 
-`pod 'Argyle', '4.x.x'`
+</aside>
 
-Use `pod install` and `pod update` commands to install/update pods afterward.
+Example Link initialization for iOS:
 
-**Swift Package Manager**
+```swift
+var config = LinkConfig(
+    linkKey: "YOUR_LINK_KEY",
+    userToken: "USER_TOKEN",
+    sandbox: true // Set to false for production environment.
+)
+// (Optional) Limit Link search to these Items:
+config.items = ["item_000001422", "item_000025742"]
+// (Optional) Callback examples:
+config.onAccountConnected = { data in
+    print("Result: onAccountConnected \(data)")
+}
+config.onAccountError = { data in
+    print("Result: onAccountError \(data)")
+}
+config.onDDSSuccess = { data in
+    print("Result: onDDSSuccess \(data)")
+}
+config.onDDSError = { data in
+    print("Result: onDDSError \(data)")
+}
+config.onTokenExpired = { handler in
+		print("onTokenExpired")
+		// generate your new token here
+    // handler(newToken)
+}
 
-[Swift Package Manager](https://www.swift.org/package-manager/) is a tool for managing the distribution of Swift code and is integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies. To integrate Argyle Link into your Xcode project using Swift Package Manager, navigate to your project settings, click the Package Dependencies tab and then click on the ➕ symbol to open the package search window - you should be able to find `argyle-link-ios` by searching by the URL of this repo.
-
-
-### 2. Configure and Start  <a name="configure"></a>
-
-1. Log into your [Console](https://console.argyle.com/api-keys) instance
-2. Navigate to the [API Keys](https://console.argyle.com/api-keys) area under the Developer menu
-3. Copy your Sandbox or Production Link API Key for use in the next step
-4. [Initialise the SDK](https://github.com/argyle-systems/argyle-link-ios/blob/32f941d3303745b51b953f79934394d2b38828a5/ArgyleExample/ArgyleExample/ViewController.swift#L23) with your Link API Key and then [present](https://github.com/argyle-systems/argyle-link-ios/blob/32f941d3303745b51b953f79934394d2b38828a5/ArgyleExample/ArgyleExample/ViewController.swift#L42) the SDK UI.
-
-For a more detailed look at how to integrate Link, please review the  [Example App](https://github.com/argyle-systems/argyle-link-ios/blob/master/ArgyleExample/ArgyleExample/ViewController.swift).
-
-## User Tokens <a name="usertokens"></a>
-For successful implementation you need to make sure to utilize user tokens correctly. Learn how to do it in Argyle [returning user experience guide](https://argyle.com/docs/products/returning-users-experience) before continuing onto the next step.
+ArgyleLink.start(from: viewController, config: config)
+```

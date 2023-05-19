@@ -15,7 +15,7 @@ First-time installation instructions are below. To update versions, visit our [u
 
 **…using [CocoaPods](https://cocoapods.org/):**
 
-1. In the `Podfile` of your Xcode project, add `pod 'Argyle', '5.1.0'` ([example Podfile](https://github.com/argyle-systems/argyle-link-ios/blob/master/ArgyleExample/Podfile))
+1. In the `Podfile` of your Xcode project, add `pod 'Argyle', '5.1.1'` ([example Podfile](https://github.com/argyle-systems/argyle-link-ios/blob/master/ArgyleExample/Podfile))
 2. Run `pod install` to install the Argyle pod
 3. Run `pod update` to ensure the most recent Argyle pod is installed
 

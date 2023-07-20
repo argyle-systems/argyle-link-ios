@@ -12,10 +12,9 @@ import Argyle
 class ViewController: UIViewController {
 
     private let USER_TOKEN = "YOUR_USER_TOKEN"
-    private let LINK_KEY = "YOUR_LINK_KEY"
 
     @IBAction func startLink(_ sender: Any) {
-        var config = LinkConfig(linkKey: LINK_KEY, userToken: USER_TOKEN, sandbox: true)
+        var config = LinkConfig(userToken: USER_TOKEN, sandbox: true)
 
 //        Limit search to the specified items only
 //        config.items = ["item_000025742", "item_000014039"]

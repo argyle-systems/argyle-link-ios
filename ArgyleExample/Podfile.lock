@@ -1,16 +1,16 @@
 PODS:
-  - Argyle (5.3.0)
+  - Argyle (5.3.1)
 
 DEPENDENCIES:
-  - Argyle (= 5.3.0)
+  - Argyle (= 5.3.1)
 
 SPEC REPOS:
   trunk:
     - Argyle
 
 SPEC CHECKSUMS:
-  Argyle: 613ddd96f20974275569be12d3f86829fe4a9884
+  Argyle: bad2d2bf8c26dffa66db46c6fdb0dd9a38550342
 
-PODFILE CHECKSUM: 0f1e3d1d000d370b4fe2705aff4a602ead3d6330
+PODFILE CHECKSUM: 5e2418aac53e3898a8a7de58f126e79ef2faff5b
 
 COCOAPODS: 1.12.1

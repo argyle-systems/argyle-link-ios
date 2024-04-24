@@ -20,6 +20,6 @@ target 'ArgyleExample' do
   end
 
   # Pods for ArgyleExample
-  pod 'Argyle', '5.6.0'
+  pod 'Argyle', '5.7.1'
 
 end

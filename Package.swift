@@ -13,7 +13,7 @@ let package = Package(
         .binaryTarget(
             name: "Argyle",
             url: "https://github.com/argyle-systems/argyle-link-ios/releases/download/5.10.1/Argyle.xcframework.zip",
-            checksum: "aadaedcdb952d35b383a88e6bea1c6d1f5b87725e64c05a5095ad3f7400d9487"
+            checksum: "1f6fb928bd26c5b0450246caa5da351db464d89990e79c5cc8222eab0f824faa"
         )
     ]
 )

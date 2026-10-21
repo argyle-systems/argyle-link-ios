@@ -7,7 +7,7 @@ First-time installation instructions are below.
 
 **************************Requirements:**************************
 
-- iOS 14.0+
+- iOS 15.0+
 - Xcode 14.0+
 - Swift 5.5+
 

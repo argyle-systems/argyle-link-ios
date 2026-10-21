@@ -96,3 +96,6 @@ fastlane/test_output
 Pods/
 
 .DS_Store
+
+# Example app SPM resolution (always tracks the latest release)
+ArgyleExample/**/Package.resolved

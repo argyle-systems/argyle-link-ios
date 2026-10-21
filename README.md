@@ -1,30 +1,44 @@
 # Argyle iOS SDK
-![pod](https://img.shields.io/cocoapods/v/Argyle?style=for-the-badge)
+![release](https://img.shields.io/github/v/release/argyle-systems/argyle-link-ios?style=for-the-badge)
 
 Argyle’s iOS Link SDK provides a way to integrate [Link](https://docs.argyle.com/guides/docs/argyle-link-overview) into your iOS app.
 
-First-time installation instructions are below. To update versions, visit our [upgrade guide](https://github.com/argyle-systems/argyle-link-ios/blob/master/UPGRADING.md).
+First-time installation instructions are below.
 
 **************************Requirements:**************************
 
-- iOS 14.0+
+- iOS 15.0+
 - Xcode 14.0+
 - Swift 5.5+
 
 ## Installing the SDK
 
-**…using [CocoaPods](https://cocoapods.org/):**
+The Argyle iOS SDK is distributed via [Swift Package Manager](https://www.swift.org/package-manager/).
 
-1. In the `Podfile` of your Xcode project, add `pod 'Argyle', '5.13.0'` ([example Podfile](https://github.com/argyle-systems/argyle-link-ios/blob/master/ArgyleExample/Podfile))
-2. Run `pod install` to install the Argyle pod
-3. Run `pod update` to ensure the most recent Argyle pod is installed
+**…in Xcode:**
 
-**…using [Swift Package Manager](https://www.swift.org/package-manager/):**
-
-1. Within your Xcode project, select File > Swift Packages > Add Package Dependency
-2. Find `argyle-link-ios` by searching the URL of this repo
+1. Within your Xcode project, select File > Add Package Dependencies…
+2. Enter `https://github.com/argyle-systems/argyle-link-ios` as the package URL
+3. Choose the "Up to Next Major Version" dependency rule and add the `Argyle` library to your app target ([example project](https://github.com/argyle-systems/argyle-link-ios/tree/master/ArgyleExample))
 
 See [adding Swift package dependencies in Xcode](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app#Add-a-package-dependency) for more information.
+
+**…in `Package.swift`:**
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/argyle-systems/argyle-link-ios", from: "5.15.2")
+],
+targets: [
+    .target(name: "YourApp", dependencies: [
+        .product(name: "Argyle", package: "argyle-link-ios")
+    ])
+]
+```
+
+**CocoaPods**
+
+The Argyle pod is no longer updated, as CocoaPods trunk is moving to read-only. Previously published versions remain installable, but new SDK versions are released through Swift Package Manager only. To migrate, remove `pod 'Argyle'` from your `Podfile`, run `pod install`, then add the package as described above. No code changes are needed: the module is still imported with `import Argyle`.
 
 ## Directly opening email clients
 

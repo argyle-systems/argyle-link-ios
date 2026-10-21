@@ -27,7 +27,7 @@ See [adding Swift package dependencies in Xcode](https://developer.apple.com/doc
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/argyle-systems/argyle-link-ios", from: "5.15.2")
+    .package(url: "https://github.com/argyle-systems/argyle-link-ios", from: "5.16.0")
 ],
 targets: [
     .target(name: "YourApp", dependencies: [
